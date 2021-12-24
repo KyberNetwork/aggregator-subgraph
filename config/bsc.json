@@ -1,0 +1,7 @@
+{
+  "network": "bsc",
+  "router": {
+    "address": "0x1Fc3607fa67B58DedDB0fAf7a116F417a20C551c",
+    "startBlock": "11316853"
+  }
+}
