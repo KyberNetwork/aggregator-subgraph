@@ -6,7 +6,7 @@
     "router:codegen": "graph codegen subgraphs/router.thegraph.yaml --output-dir src/types/router",
     "router:build": "graph build subgraphs/router.thegraph.yaml",
     "router:deploy-dev": "graph deploy piavgh/dev-dmm subgraphs/router.thegraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
-    "router:deploy": "graph deploy dynamic-amm/aggregator-${NETWORK:-ethereum}-router subgraphs/router.thegraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "router:deploy": "graph deploy dynamic-amm/aggregator-router-${NETWORK:-ethereum} subgraphs/router.thegraph.yaml --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
     "create:local": "graph create dynamic-amm/router-local --node http://127.0.0.1:8022",
     "deploy:local": "graph deploy dynamic-amm/router-local subgraph.bsctestnet.yaml --debug --ipfs http://localhost:5002 --node http://127.0.0.1:8022"
   },
