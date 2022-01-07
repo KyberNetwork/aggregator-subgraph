@@ -8,3 +8,19 @@ type RouterExchange @entity {
   blockNumber: BigInt
   tx: Bytes!
 }
+
+type AggregationExecutor @entity {
+  id: ID!
+}
+
+type ExecutorExchange @entity {
+  id: ID! # txn hash + log index
+  executor: Bytes!
+  pair: Bytes!
+  token: Bytes!
+  amount: BigDecimal!
+  userAddress: Bytes!
+  time: BigInt
+  blockNumber: BigInt
+  tx: Bytes!
+}
