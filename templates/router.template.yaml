@@ -24,3 +24,22 @@ dataSources:
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+templates:
+  - kind: ethereum/contract
+    name: AggregationExecutor
+    network: {{network}}
+    source:
+      abi: AggregationExecutor
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ../src/router/executor.ts
+      entities:
+        - ExecutorExchange
+      abis:
+        - name: AggregationExecutor
+          file: ../abis/AggregationExecutor.json
+      eventHandlers:
+        - event: Exchange(address,uint256,address)
+          handler: handleExecutorExchange
