@@ -26,10 +26,10 @@ dataSources:
           handler: handleExchange
 templates:
   - kind: ethereum/contract
-    name: AggregationExecutor
+    name: Executor
     network: {{network}}
     source:
-      abi: AggregationExecutor
+      abi: Executor
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -38,7 +38,7 @@ templates:
       entities:
         - ExecutorExchange
       abis:
-        - name: AggregationExecutor
+        - name: Executor
           file: ../abis/AggregationExecutor.json
       eventHandlers:
         - event: Exchange(address,uint256,address)

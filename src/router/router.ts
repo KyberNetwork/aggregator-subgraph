@@ -1,6 +1,6 @@
 import {AggregationExecutor, RouterExchange} from "../types/router/schema";
 import {Exchange} from "../types/router/Router/Router";
-import {AggregationExecutor as AggregationExecutorTemplate} from "../types/router/templates";
+import {Executor as AggregationExecutorTemplate} from "../types/router/templates";
 
 export function handleExchange(event: Exchange): void {
   let executor = AggregationExecutor.load(event.params.pair.toHex());

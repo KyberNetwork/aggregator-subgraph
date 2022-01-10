@@ -1,5 +1,5 @@
 import {ExecutorExchange} from "../types/router/schema";
-import {Exchange} from "../types/router/Executor/Executor";
+import {Exchange} from "../types/router/templates/Executor/Executor";
 
 export function handleExecutorExchange(event: Exchange): void {
   let id = event.transaction.hash
