@@ -157,9 +157,14 @@
             "type": "address"
           },
           {
-            "internalType": "address",
-            "name": "srcReceiver",
-            "type": "address"
+            "internalType": "address[]",
+            "name": "srcReceivers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "srcAmounts",
+            "type": "uint256[]"
           },
           {
             "internalType": "address",
@@ -186,6 +191,62 @@
       { "internalType": "uint256", "name": "returnAmount", "type": "uint256" }
     ],
     "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IAggregationExecutor",
+        "name": "caller",
+        "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "contract IERC20",
+            "name": "srcToken",
+            "type": "address"
+          },
+          {
+            "internalType": "contract IERC20",
+            "name": "dstToken",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "srcReceivers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "srcAmounts",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "address",
+            "name": "dstReceiver",
+            "type": "address"
+          },
+          { "internalType": "uint256", "name": "amount", "type": "uint256" },
+          {
+            "internalType": "uint256",
+            "name": "minReturnAmount",
+            "type": "uint256"
+          },
+          { "internalType": "uint256", "name": "flags", "type": "uint256" },
+          { "internalType": "bytes", "name": "permit", "type": "bytes" }
+        ],
+        "internalType": "struct AggregationRouter.SwapDescription",
+        "name": "desc",
+        "type": "tuple"
+      },
+      { "internalType": "bytes", "name": "data", "type": "bytes" }
+    ],
+    "name": "swapSimpleMode",
+    "outputs": [
+      { "internalType": "uint256", "name": "returnAmount", "type": "uint256" }
+    ],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {

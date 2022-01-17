@@ -17,6 +17,7 @@ export function handleExchange(event: Exchange): void {
     .concat(event.logIndex.toString());
 
   let routerExchange = new RouterExchange(id);
+  routerExchange.router = event.address;
   routerExchange.pair = event.params.pair;
   routerExchange.token = event.params.output;
   routerExchange.amount = event.params.amountOut.toBigDecimal();
