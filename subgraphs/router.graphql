@@ -1,5 +1,6 @@
 type RouterExchange @entity {
   id: ID! # txn hash + log index
+  router: Bytes!
   pair: Bytes!
   token: Bytes!
   amount: BigDecimal!

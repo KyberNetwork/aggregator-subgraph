@@ -24,6 +24,26 @@ dataSources:
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+  - kind: ethereum/contract
+    name: RouterV2
+    network: mainnet
+    source:
+      address: '0xDF1A1b60f2D438842916C0aDc43748768353EC25'
+      abi: Router
+      startBlock: 14003054
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ../src/router/router.ts
+      entities:
+        - RouterExchange
+      abis:
+        - name: Router
+          file: ../abis/AggregationRouter.json
+      eventHandlers:
+        - event: Exchange(address,uint256,address)
+          handler: handleExchange
 templates:
   - kind: ethereum/contract
     name: Executor
