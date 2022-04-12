@@ -7,5 +7,9 @@
   "routerV2": {
     "address": "0xDF1A1b60f2D438842916C0aDc43748768353EC25",
     "startBlock": "14003054"
+  },
+  "routerV3": {
+    "address": "0xDF1A1b60f2D438842916C0aDc43748768353EC25",
+    "startBlock": "14270529"
   }
 }
