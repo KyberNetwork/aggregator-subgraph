@@ -44,6 +44,26 @@ dataSources:
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+  - kind: ethereum/contract
+    name: RouterV3
+    network: {{network}}
+    source:
+      address: '{{routerV3.address}}'
+      abi: Router
+      startBlock: {{routerV3.startBlock}}
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ../src/router/router.ts
+      entities:
+        - RouterExchange
+      abis:
+        - name: Router
+          file: ../abis/AggregationRouter.json
+      eventHandlers:
+        - event: Exchange(address,uint256,address)
+          handler: handleExchange  
 templates:
   - kind: ethereum/contract
     name: Executor
