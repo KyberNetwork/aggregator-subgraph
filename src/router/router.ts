@@ -1,5 +1,5 @@
-import {AggregationExecutor, RouterExchange} from "../types/router/schema";
-import {Exchange} from "../types/router/Router/Router";
+import {AggregationExecutor, RouterExchange, RouterSwapped} from "../types/router/schema";
+import {Exchange, Swapped} from "../types/router/Router/Router";
 import {Executor as AggregationExecutorTemplate} from "../types/router/templates";
 
 export function handleExchange(event: Exchange): void {
@@ -26,4 +26,23 @@ export function handleExchange(event: Exchange): void {
   routerExchange.blockNumber = event.block.number;
   routerExchange.time = event.block.timestamp;
   routerExchange.save();
+}
+
+export function handleSwapped(event: Swapped): void {
+  let id = event.transaction.hash
+    .toHex()
+    .concat("-")
+    .concat(event.logIndex.toString());
+  let routerSwapped = new RouterSwapped(id)
+  routerSwapped.router = event.address;
+  routerSwapped.pair = event.params.srcToken.toHex().concat("_").concat(event.params.dstToken.toHex())
+  routerSwapped.tokenIn = event.params.srcToken;
+  routerSwapped.amountIn = event.params.spentAmount.toBigDecimal();
+  routerSwapped.tokenOut = event.params.dstToken
+  routerSwapped.amountOut = event.params.returnAmount.toBigDecimal();
+  routerSwapped.userAddress = event.transaction.from;
+  routerSwapped.tx = event.transaction.hash;
+  routerSwapped.blockNumber = event.block.number;
+  routerSwapped.time = event.block.timestamp;
+  routerSwapped.save();
 }

@@ -18,12 +18,15 @@ dataSources:
       file: ../src/router/router.ts
       entities:
         - RouterExchange
+        - RouterSwapped
       abis:
         - name: Router
           file: ../abis/AggregationRouter.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+        - event: Swapped(address,address,address,address,uint256,uint256)
+          handler: handleSwapped
   - kind: ethereum/contract
     name: RouterV2
     network: bsc
@@ -38,12 +41,15 @@ dataSources:
       file: ../src/router/router.ts
       entities:
         - RouterExchange
+        - RouterSwapped
       abis:
         - name: Router
           file: ../abis/AggregationRouter.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+        - event: Swapped(address,address,address,address,uint256,uint256)
+          handler: handleSwapped
   - kind: ethereum/contract
     name: RouterV3
     network: bsc
@@ -58,12 +64,15 @@ dataSources:
       file: ../src/router/router.ts
       entities:
         - RouterExchange
+        - RouterSwapped
       abis:
         - name: Router
           file: ../abis/AggregationRouter.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+        - event: Swapped(address,address,address,address,uint256,uint256)
+          handler: handleSwapped
 templates:
   - kind: ethereum/contract
     name: Executor

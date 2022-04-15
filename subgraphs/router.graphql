@@ -25,3 +25,17 @@ type ExecutorExchange @entity {
   blockNumber: BigInt
   tx: Bytes!
 }
+
+type RouterSwapped @entity {
+  id: ID! # txn hash + log index
+  router: Bytes!
+  pair: String!
+  tokenIn: Bytes!
+  amountIn: BigDecimal!
+  tokenOut: Bytes!
+  amountOut: BigDecimal!
+  userAddress: Bytes!
+  time: BigInt
+  blockNumber: BigInt
+  tx: Bytes!
+} 
