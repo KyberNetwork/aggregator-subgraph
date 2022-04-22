@@ -1,9 +1,10 @@
 specVersion: 0.0.2
 description: Router
-repository: https://github.com/dynamic-amm/aggregator-subgraph
+repository: https://github.com/kybernetwork/aggregator-subgraph
 schema:
   file: ./router.graphql
 dataSources:
+  {{#router}}
   - kind: ethereum/contract
     name: Router
     network: {{network}}
@@ -24,6 +25,8 @@ dataSources:
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+  {{/router}}
+  {{#routerV2}}
   - kind: ethereum/contract
     name: RouterV2
     network: {{network}}
@@ -44,6 +47,8 @@ dataSources:
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
+  {{/routerV2}}
+  {{#routerV3}}
   - kind: ethereum/contract
     name: RouterV3
     network: {{network}}
@@ -63,7 +68,8 @@ dataSources:
           file: ../abis/AggregationRouter.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
-          handler: handleExchange  
+          handler: handleExchange
+  {{/routerV3}}
 templates:
   - kind: ethereum/contract
     name: Executor
