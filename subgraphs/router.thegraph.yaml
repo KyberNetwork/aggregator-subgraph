@@ -32,7 +32,7 @@ dataSources:
     network: bsc
     source:
       address: '0xDF1A1b60f2D438842916C0aDc43748768353EC25'
-      abi: Router
+      abi: RouterV2
       startBlock: 14270529
     mapping:
       kind: ethereum/events
@@ -43,8 +43,8 @@ dataSources:
         - RouterExchange
         - RouterSwapped
       abis:
-        - name: Router
-          file: ../abis/AggregationRouter.json
+        - name: RouterV2
+          file: ../abis/AggregationRouterV2.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
@@ -55,7 +55,7 @@ dataSources:
     network: bsc
     source:
       address: '0x00555513Acf282B42882420E5e5bA87b44D8fA6E'
-      abi: Router
+      abi: RouterV3
       startBlock: 16704288
     mapping:
       kind: ethereum/events
@@ -66,13 +66,15 @@ dataSources:
         - RouterExchange
         - RouterSwapped
       abis:
-        - name: Router
-          file: ../abis/AggregationRouter.json
+        - name: RouterV3
+          file: ../abis/AggregationRouterV3.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
         - event: Swapped(address,address,address,address,uint256,uint256)
           handler: handleSwapped
+        - event: ClientData(bytes)
+          handler: handleClientData
 templates:
   - kind: ethereum/contract
     name: Executor

@@ -35,7 +35,7 @@ dataSources:
     network: {{network}}
     source:
       address: '{{routerV2.address}}'
-      abi: Router
+      abi: RouterV2
       startBlock: {{routerV2.startBlock}}
     mapping:
       kind: ethereum/events
@@ -46,8 +46,8 @@ dataSources:
         - RouterExchange
         - RouterSwapped
       abis:
-        - name: Router
-          file: ../abis/AggregationRouter.json
+        - name: RouterV2
+          file: ../abis/AggregationRouterV2.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
@@ -60,7 +60,7 @@ dataSources:
     network: {{network}}
     source:
       address: '{{routerV3.address}}'
-      abi: Router
+      abi: RouterV3
       startBlock: {{routerV3.startBlock}}
     mapping:
       kind: ethereum/events
@@ -71,13 +71,15 @@ dataSources:
         - RouterExchange
         - RouterSwapped
       abis:
-        - name: Router
-          file: ../abis/AggregationRouter.json
+        - name: RouterV3
+          file: ../abis/AggregationRouterV3.json
       eventHandlers:
         - event: Exchange(address,uint256,address)
           handler: handleExchange
         - event: Swapped(address,address,address,address,uint256,uint256)
           handler: handleSwapped
+        - event: ClientData(bytes)
+          handler: handleClientData
   {{/routerV3}}
 templates:
   - kind: ethereum/contract
