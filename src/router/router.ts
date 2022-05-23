@@ -17,7 +17,7 @@ export function handleExchange(event: Exchange): void {
     .concat("-")
     .concat(event.logIndex.toString());
 
-  let routerExchange = new RouterExchange(id);
+  let routerExchange = createOrLoadRouterExchange(id);
   routerExchange.router = event.address;
   routerExchange.pair = event.params.pair;
   routerExchange.token = event.params.output;
@@ -49,6 +49,11 @@ export function handleSwapped(event: Swapped): void {
   routerSwapped.blockNumber = event.block.number;
   routerSwapped.time = event.block.timestamp;
   routerSwapped.save();
+
+  let routerExchange = createOrLoadRouterExchange(id);
+  routerExchange.tokenIn = event.params.srcToken;
+  routerExchange.tokenOut = event.params.dstToken;
+  routerExchange.save();
 }
 
 export function handleClientData(event: ClientData): void {
@@ -72,4 +77,14 @@ export function createOrLoadRouterSwapped(id: string): RouterSwapped {
   }
 
   return routerSwapped as RouterSwapped;
+}
+
+export function createOrLoadRouterExchange(id: string): RouterExchange {
+  let routerExchange = RouterExchange.load(id);
+
+  if (routerExchange == null) {
+    routerExchange = new RouterExchange(id);
+  }
+
+  return routerExchange as RouterExchange;
 }
