@@ -41,4 +41,5 @@ type RouterSwapped @entity {
   blockNumber: BigInt
   tx: Bytes!
   clientData: Bytes
+  source: String
 }
