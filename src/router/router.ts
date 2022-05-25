@@ -14,9 +14,7 @@ export function handleExchange(event: Exchange): void {
   }
 
   let id = event.transaction.hash
-    .toHex()
-    .concat("-")
-    .concat(event.logIndex.toString());
+    .toHex();
 
   let routerExchange = createOrLoadRouterExchange(id);
   routerExchange.router = event.address;
@@ -32,9 +30,7 @@ export function handleExchange(event: Exchange): void {
 
 export function handleSwapped(event: Swapped): void {
   let id = event.transaction.hash
-    .toHex()
-    .concat("-")
-    .concat(event.logIndex.toString());
+      .toHex();
   let routerSwapped = createOrLoadRouterSwapped(id);
   routerSwapped.router = event.address;
   routerSwapped.pair = event.params.srcToken
@@ -59,9 +55,7 @@ export function handleSwapped(event: Swapped): void {
 
 export function handleClientData(event: ClientData): void {
   let id = event.transaction.hash
-    .toHex()
-    .concat("-")
-    .concat(event.logIndex.toString());
+      .toHex();
 
   let routerSwapped = createOrLoadRouterSwapped(id);
 
