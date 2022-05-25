@@ -67,13 +67,17 @@ export function handleClientData(event: ClientData): void {
 
   routerSwapped.clientData = event.params.clientData;
   let rawStr = event.params.clientData.toString();
-  let data = rawStr.substring(rawStr.indexOf('source') - 2);
-  let clientData = <JSON.Obj>(JSON.parse(data))
-  let source = clientData.getString("source");
-  if (source != null) {
-    routerSwapped.source = source.valueOf();
-  } else {
-    routerSwapped.source = data;
+  let indexOfSource = rawStr.indexOf('source');
+  if (indexOfSource > 2) {
+    let data = rawStr.substring(rawStr.indexOf('source') - 2);
+    let clientData = <JSON.Obj>(JSON.parse(data))
+
+    if (clientData != null && clientData.has("source")) {
+      let source = clientData.getString("source");
+      routerSwapped.source = source != null ? source.valueOf() : data;
+    } else {
+      routerSwapped.source = data;
+    }
   }
 
   routerSwapped.save();
