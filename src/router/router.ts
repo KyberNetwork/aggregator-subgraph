@@ -61,16 +61,32 @@ export function handleClientData(event: ClientData): void {
 
   routerSwapped.clientData = event.params.clientData;
   let rawStr = event.params.clientData.toString();
-  let indexOfSource = rawStr.indexOf('source');
-  if (indexOfSource > 2) {
-    let data = rawStr.substring(rawStr.indexOf('source') - 2);
-    let clientData = <JSON.Obj>(JSON.parse(data))
+  let indexOfInputObject = rawStr.indexOf('{');
+  if (indexOfInputObject >= 0) {
+    {
+      let inputData = rawStr.substring(rawStr.indexOf('{'));
+      let clientData = <JSON.Obj>(JSON.parse(inputData));
 
-    if (clientData != null && clientData.has("source")) {
-      let source = clientData.getString("source");
-      routerSwapped.source = source != null ? source.valueOf() : data;
-    } else {
-      routerSwapped.source = data;
+      if (clientData != null) {
+        if (clientData.has("Source")) {
+          let source = clientData.getString("Source");
+          routerSwapped.source = source != null ? source.valueOf() : "";
+        } else if (clientData.has("source")) {
+          let source = clientData.getString("source");
+          routerSwapped.source = source != null ? source.valueOf() : "";
+        }
+        else if (clientData.has("Data") && clientData.getString("Data") != null) {
+          let data = clientData.getString("Data");
+
+          let dataObj = <JSON.Obj>(JSON.parse(data))
+          if (dataObj.has("source")) {
+            let source = dataObj.getString("source");
+            routerSwapped.source = source != null ? source.valueOf() : "";
+          }
+        }
+      } else {
+        routerSwapped.source = inputData;
+      }
     }
   }
 
