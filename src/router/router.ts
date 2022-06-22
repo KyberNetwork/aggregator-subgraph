@@ -2,7 +2,6 @@ import {AggregationExecutor, RouterExchange, RouterSwapped} from "../types/route
 import {Exchange, Swapped} from "../types/router/Router/Router";
 import {ClientData} from "../types/router/RouterV3/RouterV3";
 import {Executor as AggregationExecutorTemplate} from "../types/router/templates";
-import {JSON} from 'assemblyscript-json';
 
 export function handleExchange(event: Exchange): void {
   let executor = AggregationExecutor.load(event.params.pair.toHex());
