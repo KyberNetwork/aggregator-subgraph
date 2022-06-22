@@ -778,10 +778,10 @@
     which "2.0.2"
     yaml "^1.5.1"
 
-"@graphprotocol/graph-ts@^0.24.1":
-  version "0.24.1"
-  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.24.1.tgz#50961b52b5383f9c5cf5e6e23fa039f24e729ddf"
-  integrity sha512-2vU4m5ZPQIqMlMce/z5vmOtGHRlRmcRhMfemS3NIwxCSxSBGVnX2zb7QBTzzdQKGwsAZdbz6V0okkOtvohELfQ==
+"@graphprotocol/graph-ts@^0.25.0":
+  version "0.25.0"
+  resolved "https://registry.yarnpkg.com/@graphprotocol/graph-ts/-/graph-ts-0.25.0.tgz#74b11effe1d96957004b3f5f0361562ba2b80019"
+  integrity sha512-/R++19dAtqPhd/Bv3l09ubcc8SWrm+akeyYG4yqkg5fk+b5Bm2Bi4Y+CK8B4l3C9mcc2mzJ7s7YisDMmGclqzw==
   dependencies:
     assemblyscript "0.19.10"
 
@@ -2523,6 +2523,11 @@ asn1@~0.2.3:
   integrity sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==
   dependencies:
     safer-buffer "~2.1.0"
+
+assemblyscript-json@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/assemblyscript-json/-/assemblyscript-json-1.1.0.tgz#49d38bc21f1ac36f2887528a35de6cf7d59c17be"
+  integrity sha512-UbE8ts8csTWQgd5TnSPN7MRV9NveuHv1bVnKmDLoo/tzjqxkmsZb3lu59Uk8H7SGoqdkDSEE049alx/nHnSdFw==
 
 assemblyscript@0.19.10:
   version "0.19.10"
