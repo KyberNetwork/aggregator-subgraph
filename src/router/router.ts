@@ -2,7 +2,6 @@ import {AggregationExecutor, RouterExchange, RouterSwapped} from "../types/route
 import {Exchange, Swapped} from "../types/router/Router/Router";
 import {ClientData} from "../types/router/RouterV3/RouterV3";
 import {Executor as AggregationExecutorTemplate} from "../types/router/templates";
-import {JSON} from 'assemblyscript-json';
 
 export function handleExchange(event: Exchange): void {
   let executor = AggregationExecutor.load(event.params.pair.toHex());
@@ -60,19 +59,7 @@ export function handleClientData(event: ClientData): void {
   let routerSwapped = createOrLoadRouterSwapped(id);
 
   routerSwapped.clientData = event.params.clientData;
-  let rawStr = event.params.clientData.toString();
-  let indexOfSource = rawStr.indexOf('source');
-  if (indexOfSource > 2) {
-    let data = rawStr.substring(rawStr.indexOf('source') - 2);
-    let clientData = <JSON.Obj>(JSON.parse(data))
-
-    if (clientData != null && clientData.has("source")) {
-      let source = clientData.getString("source");
-      routerSwapped.source = source != null ? source.valueOf() : data;
-    } else {
-      routerSwapped.source = data;
-    }
-  }
+  routerSwapped.clientDataStr = event.params.clientData.toString();
 
   routerSwapped.save();
 }

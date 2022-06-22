@@ -14,11 +14,10 @@
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.25.1",
-    "@graphprotocol/graph-ts": "^0.24.1",
+    "@graphprotocol/graph-ts": "^0.25.0",
     "mustache": "^4.2.0"
   },
   "dependencies": {
-    "assemblyscript-json": "^1.1.0",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "keytar": "^5.0.0",
