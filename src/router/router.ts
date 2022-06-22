@@ -60,8 +60,7 @@ export function handleClientData(event: ClientData): void {
   let routerSwapped = createOrLoadRouterSwapped(id);
 
   routerSwapped.clientData = event.params.clientData;
-  let rawStr = event.params.clientData.toString();
-  routerSwapped.clientDataStr = rawStr;
+  routerSwapped.clientDataStr = event.params.clientData.toString();
 
   routerSwapped.save();
 }
