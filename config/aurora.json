@@ -1,0 +1,15 @@
+{
+    "network": "aurora",
+    "router": {
+        "address": "0x1Fc3607fa67B58DedDB0fAf7a116F417a20C551c",
+        "startBlock": "54780157"
+    },
+    "routerV2": {
+        "address": "0xDF1A1b60f2D438842916C0aDc43748768353EC25",
+        "startBlock": "60984994"
+    },
+    "routerV3": {
+        "address": "0x00555513Acf282B42882420E5e5bA87b44D8fA6E",
+        "startBlock": "62945165"
+    }
+}
