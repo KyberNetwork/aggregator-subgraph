@@ -7,5 +7,9 @@
   "routerV3": {
     "address": "0x00555513Acf282B42882420E5e5bA87b44D8fA6E",
     "startBlock": "4901498"
+  },
+  "graft": {
+    "id": "QmYVpPwQ3ikhwuZzwrUJPh4tB1JAz18MNdmZDoQAH55Q7M",
+    "block": "9665599"
   }
 }

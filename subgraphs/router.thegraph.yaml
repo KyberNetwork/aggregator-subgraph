@@ -3,6 +3,9 @@ description: Router
 repository: https://github.com/kybernetwork/aggregator-subgraph
 schema:
   file: ./router.graphql
+graft:
+  base: QmQXUu2NTpd2kQkuhzXFj1Pdx6YYt3xQLc7HznpTewbpEE # Subgraph ID of base subgraph
+  block: 19915367 # Block number
 dataSources:
   - kind: ethereum/contract
     name: Router
