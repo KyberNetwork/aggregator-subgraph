@@ -75,6 +75,31 @@ dataSources:
           handler: handleSwapped
         - event: ClientData(bytes)
           handler: handleClientData
+  - kind: ethereum/contract
+    name: RouterMeta
+    network: bsc
+    source:
+      address: '0x617Dee16B86534a5d792A4d7A62FB491B544111E'
+      abi: RouterMeta
+      startBlock: 19915368
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: ../src/router/router.ts
+      entities:
+        - RouterExchange
+        - RouterSwapped
+      abis:
+        - name: RouterMeta
+          file: ../abis/AggregationRouterMeta.json
+      eventHandlers:
+        - event: Exchange(address,uint256,address)
+          handler: handleExchange
+        - event: Swapped(address,address,address,address,uint256,uint256)
+          handler: handleSwapped
+        - event: ClientData(bytes)
+          handler: handleClientData
 templates:
   - kind: ethereum/contract
     name: Executor
