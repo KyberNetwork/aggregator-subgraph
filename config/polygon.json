@@ -11,5 +11,13 @@
   "routerV3": {
     "address": "0x00555513Acf282B42882420E5e5bA87b44D8fA6E",
     "startBlock": "26806784"
+  },
+  "routerMeta": {
+    "address": "0x617Dee16B86534a5d792A4d7A62FB491B544111E",
+    "startBlock": "31194679"
+  },
+  "graft": {
+    "id": "QmVRLWb1MssBndZfu1vuJurT9VDWDCbfNuk1okhtFr4Yoy",
+    "block": "31194678"
   }
 }
