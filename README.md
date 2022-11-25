@@ -1,5 +1,7 @@
 # Kyberswap Aggregator Subgraph
 
+> This project is archived. Please use code in this project instead: https://github.com/kybernetwork/subgraphs
+
 Subgraph to index data from aggregation router smart contract.
 
 ## Prerequisites
